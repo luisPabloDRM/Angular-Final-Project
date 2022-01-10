@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="card">
+    <div class="imgBx">
+      <img src="{{item.thumbnail}}">
+    </div>
+    <div class="contentBx">
+      <h2>{{item.title}}</h2>
+      <div class="genre">
+        <p>{{item.genre}}</p>
+      </div>
+      <div class="platform">
+        <p>{{item.platform}}</p>
+        <p>{{item.short_description}}</p>
+      </div>
+      <button><a href="{{item.freetogame_profile_url}}">Profile</a></button>
+      <button (click)="descarga(item)">Download</button>
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,44 @@
+<div class="container" >
+  <div class="row margin-3">
+    <div class="col-md-12 mx-auto">
+      <div class="card text-center">
+        <div class="card-header text-center">
+          Inicio de sesion
+        </div>
+        <div class="card-body col-lg-12"  >
+          <div class="container">
+            <form class="form" novalidate (ngSubmit)="onSubmit()" [formGroup]="userRegisterForm">
+              <input type="text" class="text-center outline-warning btn-lg  mb-3 col-lg-8"  placeholder="Email" formControlName="email" required>
+              <p *ngIf="userRegisterForm.get('email')?.invalid && (userRegisterForm.get('email')?.dirty || submitted)">
+                Campo obligatorio</p>
+              <p *ngIf="userRegisterForm.get('email')?.errors?.['pattern']">
+                email invalido
+              </p>
+              <input class="outline-warning text-center btn-lg btn-block mb-3 col-lg-8" [type]="show ? 'text' : 'password'"formControlName="password" placeholder="Password" >
+              <span class="fa fa-fw fa-eye password-icon show-password" (click)="password()"></span>
+              <p
+                *ngIf="userRegisterForm.get('password')?.invalid && (userRegisterForm.get('password')?.dirty || submitted)">
+                Campo obligatorio</p>
+              <p *ngIf="userRegisterForm.get('password')?.errors?.['pattern']">
+                Tu contraseña debe tener al 8 caracteres y una letra y un número
+              </p>
+              <p *ngIf="submitted && !this.userRegisterForm.valid">Existen errores en el formulario</p>
+              <div>
+                <button class="submit btn btn-primary" type="submit" [disabled]="userRegisterForm.valid">log in</button>
+              </div>
+            </form>
+          </div>
+          <hr>
+          <button class="btn btn-outline-danger btn-lg btn-block mb-3 col-lg-8" (click)="signInWithGoogle()">
+            <i class="fab fa-google"></i>
+            Iniciar con Google
+          </button>
+          <button class="btn btn-outline-primary btn-lg btn-block col-lg-8" (click)="signInWithFB()">
+            <i class="fab fa-facebook"></i>
+            Iniciar con Facebook
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

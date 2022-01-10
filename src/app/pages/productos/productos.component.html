@@ -1,0 +1,30 @@
+<h3 class="buscar">
+  BUSCAR POR...
+</h3>
+
+<div class="inputs">
+
+  <div class="form-group">
+  <h5>titulo</h5>
+
+    <input type="text" placeholder="ejem..game" class="forms-control"  [(ngModel)]="filterpost" name="filterpost">
+  </div>
+  <mat-spinner *ngIf="isloading"></mat-spinner>
+  <div class="form-group">
+  <h5>genero</h5>
+
+    <input type="text" placeholder="shooter,social,strategy..." class="forms-control"  [(ngModel)]="filtergenero" name="filtergenero">
+  </div>
+
+
+</div>
+
+
+<div class="containerBig" *ngIf="array.length>0">
+  <app-card *ngFor="let item of array | filtro :filterpost | filtroGenero:filtergenero" [item]='item'></app-card>
+</div>
+
+
+
+
+
