@@ -1,0 +1,47 @@
+<div class="container">
+  <form class="form" novalidate (ngSubmit)="onSubmit()" [formGroup]="userRegisterForm">
+    <h2>crear cuenta</h2>
+    <input type="text" id="name" formControlName="name" placeholder="Nick"  class="outline-warning text-center btn-lg btn-block mb-3 col-lg-8"/>
+
+    <p *ngIf="!userRegisterForm.get('name')?.valid && (userRegisterForm.get('name')?.dirty || submitted)">
+      Este campo es obligatorio y no puede exceder los 20 caracteres
+    </p>
+
+
+
+    <input id="email" placeholder="Email" formControlName="email" required  class="outline-warning text-center btn-lg btn-block mb-3 col-lg-8">
+    <p *ngIf="userRegisterForm.get('email')?.invalid && (userRegisterForm.get('email')?.dirty || submitted)">
+      Campo obligatorio</p>
+
+    <input type="password" id="password" formControlName="password" placeholder="Password" class="outline-warning text-center btn-lg btn-block mb-3 col-lg-8" [type]="show ? 'text' : 'password'">
+    <span class="fa fa-fw fa-eye password-icon show-password" (click)="password()"></span>
+    <!-- si el campo password es invalido / se ha escrito el campo y fue submit -->
+    <p *ngIf="userRegisterForm.get('password')?.invalid && (userRegisterForm.get('password')?.dirty || submitted)">
+      Campo obligatorio</p>
+
+    <p *ngIf="userRegisterForm.get('password')?.errors?.['pattern']">
+      Tu contraseña debe tener al 8 caracteres y una letra y un número
+    </p>
+
+
+    <!-- Fieldset del segundo campo - repeatPassword -->
+
+    <input type="password" id="passwordRepeat" formControlName="passwordRepeat" placeholder="Repeat password"  class="outline-warning text-center btn-lg btn-block mb-3 col-lg-8" />
+    <!-- Si el campo repeatPassword es invalido / ha sido password / submitted = true -->
+    <p
+      *ngIf="!userRegisterForm.get('passwordRepeat')?.valid && (userRegisterForm.get('passwordRepeat')?.dirty || submitted)">
+      tu contraseña no coincide</p>
+
+
+    <p *ngIf="submitted && !this.userRegisterForm.valid">Existen errores en el formulario</p>
+    <div>
+      <button class="submit" type="submit" [disabled]="!userRegisterForm.valid">Registro</button>
+    </div>
+
+  </form>
+
+
+
+
+</div>
+<hr>

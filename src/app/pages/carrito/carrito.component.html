@@ -1,0 +1,41 @@
+
+
+<h2>Descargas</h2>
+<div class="carrito">
+  <div class="cards" >
+    <div *ngFor="let item of service.list">
+      <div class="container" >
+        <div class="card" *ngIf="!item.chek" >
+            <div class="imgBx">
+              <img src="{{item.thumbnail}}" alt="">
+            </div>
+            <div class="contentBx">
+              <h3>{{item.title}}</h3>
+              <div class="genre">
+                <p>{{item.genre}}</p>
+              </div>
+              <div class="platform">
+                <p>{{item.platform}}</p>
+                <p>{{item.short_description}}</p>
+              </div>
+              <a href="url" download="{{item.game_url}}">
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="resumen">
+    <h3>Subtotal ( {{service.list.length}}  descargas)</h3>
+    <div class="unidad" *ngFor="let item of service.list">
+      <p>{{item.title}}</p>
+
+      <input type="checkbox" name="titulo" id="titulo"  [(ngModel)]="item.chek">
+
+    </div>
+    <p class="eliminar">Eliminar descargas</p>
+  </div>
+</div>
+
+

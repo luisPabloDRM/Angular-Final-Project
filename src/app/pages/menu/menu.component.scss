@@ -1,0 +1,40 @@
+button {
+  font-size: smaller;
+}
+.nav-item {
+  :hover {
+    border-bottom: 2px solid grey;
+  }
+  :focus {
+    border-bottom: 2px solid grey;
+  }
+}
+.nav-link-active {
+  color: grey;
+  margin-left: 20px;
+}
+.navbar-brand {
+  color: grey;
+  &:hover{
+    color: grey;
+  }
+}
+.navbar-toggler {
+  background: grey;
+}
+@media (max-width: 1100px) {
+  .navbar-toggler {
+    display: block;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+
+  }
+  .nav-item {
+    display: none;
+  }
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: grey;
+}

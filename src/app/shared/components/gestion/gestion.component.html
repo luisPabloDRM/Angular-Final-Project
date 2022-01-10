@@ -1,0 +1,31 @@
+
+
+<h3 class="buscar">COMPARTE TU JUEGO</h3>
+
+<div class="card">
+  <div class='formu'>
+    <div class="contentBx">
+      <div class="card__title"><span>Titulo:</span></div>
+      <input type="text" #inputName (keyup)='titulo(inputName.value)' placeholder="Título"/>
+
+      <div><span>Genero:</span></div>
+      <input type="text"  #inputGenero (keyup)='genero(inputGenero.value)' placeholder="Género"/>
+      <div><span>Descripcion:</span></div>
+      <input type="text" #inputDescripcion (keyup)='descripcion(inputDescripcion.value)' placeholder="Descripción"/>
+      <div><span>Ruta de imagen:</span></div>
+      <input type="text" #inputImagen (keyup)='imagen(inputImagen.value)' >
+
+    </div>
+      <button>Upload</button>
+  </div>
+  <div class="polaroid">
+    <app-product class="contenedor"
+    [titulo]='tituloJuego'
+    [genero]='generoJuego'
+    [descripcion]= 'descripcionJuego'
+    [img]='img'
+
+    ></app-product>
+  </div>
+</div>
+
